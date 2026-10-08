@@ -5,9 +5,9 @@ export const Footer: React.FC = () => {
   return (
     <footer className="w-full bg-white border-t border-slate-200 pt-12 pb-8">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
-        
+
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-slate-100">
-          
+
           {/* Brand Info */}
           <div className="md:col-span-5 space-y-3">
             <div className="flex items-center gap-2">
@@ -85,7 +85,7 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-1.5 text-slate-500">
                 <Mail className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                <span>halo@warrantyidea.id</span>
+                <span>naufal.4253250026@mhs.unimed.ac.id</span>
               </li>
               <li className="flex items-center gap-1.5 text-slate-500">
                 <MapPin className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
