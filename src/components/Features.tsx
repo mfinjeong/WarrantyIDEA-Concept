@@ -14,43 +14,37 @@ export const Features: React.FC = () => {
     {
       code: '01',
       title: 'Digital Warranty',
-      desc: 'Pelanggan dapat melihat informasi garansi melalui QR Code.',
-      detail: 'Cukup scan barcode stiker di bagian bawah laptop atau kotak unit tanpa aplikasi khusus.',
+      desc: 'Pelanggan dapat mengecek masa aktif garansi langsung lewat scan QR Code.',
       icon: QrCode,
     },
     {
       code: '02',
       title: 'Warranty Claim',
-      desc: 'Seller dapat menerima dan memeriksa pengajuan klaim dengan lebih mudah.',
-      detail: 'Verifikasi kelayakan klaim garansi toko instan hanya dengan mencocokkan nomor seri.',
+      desc: 'Seller dapat memverifikasi dan memproses pengajuan klaim secara cepat.',
       icon: ClipboardCheck,
     },
     {
       code: '03',
       title: 'Service History',
-      desc: 'Riwayat servis produk tersimpan dalam satu tempat.',
-      detail: 'Catatan pergantian thermal paste, upgrade RAM, atau pergantian layar tersimpan urut.',
+      desc: 'Catatan servis teknisi dan pergantian suku cadang tersimpan rapi.',
       icon: History,
     },
     {
       code: '04',
       title: 'Product Record',
-      desc: 'Serial number, tanggal pembelian, dan kondisi produk dapat dicatat.',
-      detail: 'Dokumentasi kondisi fisik awal dan kelengkapan aksesoris saat barang diserahkan ke pembeli.',
+      desc: 'Nomor seri, tipe unit, dan tanggal pembelian tercatat otomatis.',
       icon: FileSpreadsheet,
     },
     {
       code: '05',
       title: 'Warranty Protection',
-      desc: 'Seller dapat melihat informasi dan riwayat produk sebelum memproses klaim.',
-      detail: 'Mencegah penipuan klaim seperti segel toko yang sudah rusak atau unit yang dibeli dari toko lain.',
+      desc: 'Cegah klaim palsu dengan verifikasi data unit yang akurat.',
       icon: ShieldAlert,
     },
     {
       code: '06',
-      title: 'Customer Follow-up',
-      desc: 'Seller dapat menjaga hubungan dengan pelanggan setelah transaksi.',
-      detail: 'Kirim pengingat servis berkala dan penawaran upgrade komponen saat garansi mendekati habis.',
+      title: 'Customer Service',
+      desc: 'Bangun kepercayaan pelanggan lewat layanan purna jual yang transparan.',
       icon: UserCheck,
     },
   ];
@@ -62,13 +56,13 @@ export const Features: React.FC = () => {
           {/* Section Header */}
           <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 text-emerald-800 text-xs font-semibold tracking-wide uppercase mb-3 border border-emerald-200/80">
-              Fungsionalitas Lengkap
+              Fitur
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
               Fitur Utama WarrantyIDEA
             </h2>
             <p className="mt-3 text-base text-slate-600 leading-relaxed">
-              Enam modul fungsional yang dirancang khusus untuk mempermudah alur kerja garansi toko komputer dari hari pertama hingga purna jual.
+              Fitur praktis untuk mempermudah pengelolaan garansi dan layanan purna jual.
             </p>
           </div>
 
@@ -95,17 +89,13 @@ export const Features: React.FC = () => {
                       {item.title}
                     </h3>
 
-                    <p className="text-sm font-medium text-slate-700 leading-relaxed mb-3">
+                    <p className="text-sm text-slate-600 leading-relaxed">
                       {item.desc}
-                    </p>
-
-                    <p className="text-xs text-slate-500 leading-relaxed">
-                      {item.detail}
                     </p>
                   </div>
 
                   <div className="mt-5 pt-4 border-t border-slate-100 flex items-center text-[11px] text-slate-400 group-hover:text-blue-600 transition-colors">
-                    <span>Modul Aktif Ritel</span>
+                    <span>Fitur Toko Komputer</span>
                   </div>
                 </div>
               );

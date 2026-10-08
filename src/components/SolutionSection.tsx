@@ -15,34 +15,34 @@ export const SolutionSection: React.FC = () => {
     {
       step: '01',
       title: 'Produk',
-      badge: 'Penjualan Fisik',
+      badge: 'Penjualan',
       icon: Package,
-      desc: 'Laptop, PC rakitan, monitor, atau komponen terjual di kasir toko retail.',
-      detail: 'Nomor seri (SN) dan masa garansi didaftarkan langsung ke sistem.',
+      desc: 'Produk didaftarkan ke sistem saat transaksi kasir.',
+      detail: 'Mencatat nomor seri dan masa garansi.',
     },
     {
       step: '02',
       title: 'QR Code',
-      badge: 'Stiker Digital',
+      badge: 'Stiker Unik',
       icon: QrCode,
-      desc: 'Sistem mencetak label stiker QR unik yang ditempel pada unit produk.',
-      detail: 'Menjadi identitas digital produk yang tahan lama & tidak bisa dipalsukan.',
+      desc: 'Stiker QR Code ditempel langsung pada unit fisik.',
+      detail: 'Identitas digital produk.',
     },
     {
       step: '03',
       title: 'WarrantyIDEA',
-      badge: 'Pusat Cloud',
+      badge: 'Sistem Terpusat',
       icon: Layers,
-      desc: 'Sistem menyatukan data garansi, spesifikasi, dan tanggal kedaluwarsa.',
-      detail: 'Tersinkronisasi otomatis antara portal toko dan portal konsumen.',
+      desc: 'Data garansi dan masa berlaku tersimpan aman.',
+      detail: 'Tersinkronisasi otomatis.',
     },
     {
       step: '04',
-      title: 'Warranty & Service',
+      title: 'Klaim & Servis',
       badge: 'Akses Instan',
       icon: FileCheck,
-      desc: 'Seller dan buyer dapat melihat status garansi, mengajukan klaim, dan mencatat riwayat servis.',
-      detail: 'Transparan, akurat, dan dapat dicek kapan saja dari smartphone.',
+      desc: 'Cek status garansi dan riwayat servis kapan saja.',
+      detail: 'Dapat diakses dari browser HP.',
     },
   ];
 
@@ -57,13 +57,13 @@ export const SolutionSection: React.FC = () => {
           {/* Section Header */}
           <div className="max-w-3xl mx-auto text-center mb-14">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide uppercase mb-3 border border-blue-200">
-              Arsitektur Solusi
+              Solusi
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Satu Sistem untuk Mengelola Garansi
+              Satu Sistem Garansi Digital
             </h2>
             <p className="mt-3 text-base text-slate-600 leading-relaxed">
-              WarrantyIDEA menggantikan tumpukan kuitansi kertas dengan siklus digital yang menghubungkan produk fisik langsung ke database purna jual.
+              WarrantyIDEA menggantikan nota kertas dengan identitas digital yang praktis dan akurat.
             </p>
           </div>
 
@@ -141,10 +141,10 @@ export const SolutionSection: React.FC = () => {
           <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-3">
             <div className="flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
-              <span>Memangkas waktu verifikasi garansi dari rata-rata 15 menit menjadi kurang dari 10 detik.</span>
+              <span>Verifikasi garansi lebih cepat dan akurat tanpa nota fisik.</span>
             </div>
             <div className="text-slate-400 font-mono text-[11px]">
-              Protokol Terenkripsi ID Unik
+              ID &amp; QR Code Unik
             </div>
           </div>
 

@@ -62,13 +62,13 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenDemo }) => {
           {/* Section Header */}
           <div className="max-w-2xl mx-auto text-center mb-12">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide uppercase mb-3 border border-blue-200">
-              Skema Langganan
+              Harga
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Model Bisnis
+              Pilihan Paket
             </h2>
             <p className="mt-3 text-base text-slate-600 leading-relaxed">
-              WarrantyIDEA menggunakan model subscription terjangkau untuk toko, dirancang fleksibel tanpa biaya tersembunyi.
+              Langganan fleksibel sesuai kebutuhan skala toko komputer Anda.
             </p>
           </div>
 
@@ -139,7 +139,7 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenDemo }) => {
 
         {/* Pricing Sub-note */}
         <div className="text-center mt-8 text-xs text-slate-500">
-          Uji coba gratis 14 hari untuk toko baru tanpa komitmen kartu kredit.
+          Uji coba gratis 14 hari tanpa kartu kredit.
         </div>
         </ScrollReveal>
 

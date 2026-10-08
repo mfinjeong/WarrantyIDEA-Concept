@@ -114,16 +114,16 @@ export const DashboardPreview: React.FC = () => {
         <ScrollReveal>
           {/* Section Header */}
           <div className="max-w-3xl mx-auto text-center mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide uppercase mb-3 border border-blue-200">
-            Fokus Produk
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide uppercase mb-3 border border-blue-200">
+              Dashboard Toko
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Pratinjau Sistem
+            </h2>
+            <p className="mt-3 text-base text-slate-600 leading-relaxed">
+              Pantau status garansi aktif, pengajuan klaim, dan riwayat servis unit secara terpusat.
+            </p>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Pratinjau Dashboard WarrantyIDEA
-          </h2>
-          <p className="mt-3 text-base text-slate-600 leading-relaxed">
-            Antarmuka manajemen purna jual yang dirancang khusus untuk mempermudah operasional kasir, admin gudang, dan teknisi toko komputer.
-          </p>
-        </div>
 
         {/* Big Dashboard Window Mockup */}
         <div className="w-full max-w-full min-w-0 bg-white rounded-2xl border border-slate-200 shadow-elevated overflow-hidden">

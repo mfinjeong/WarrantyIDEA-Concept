@@ -48,29 +48,29 @@ export const About: React.FC = () => {
             </div>
 
             {/* Core Message */}
-            <blockquote className="text-lg sm:text-xl font-medium text-slate-800 leading-relaxed border-l-4 border-blue-600 pl-4 py-1 italic">
-              &ldquo;WarrantyIDEA dikembangkan sebagai solusi digital untuk membantu toko komputer dan elektronik mengelola layanan setelah pembelian dengan lebih teratur.&rdquo;
+            <blockquote className="text-base sm:text-lg font-medium text-slate-800 leading-relaxed border-l-4 border-blue-600 pl-4 py-1 italic">
+              &ldquo;Membantu toko komputer mengelola garansi dan layanan purna jual secara digital dan teratur.&rdquo;
             </blockquote>
 
-            {/* Context & Description */}
+            {/* Context & Description - 2 Short Paragraphs */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2 text-sm text-slate-600 leading-relaxed">
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <h4 className="font-bold text-slate-900 flex items-center gap-2">
                   <Lightbulb className="w-4 h-4 text-blue-600" />
-                  Observasi Lapangan
+                  Latar Belakang
                 </h4>
                 <p>
-                  Ide ini berawal dari permasalahan riil saat mengunjungi pusat pertokoan komputer lokal. Banyak pemilik toko servis dan rakit PC masih bergantung pada nota cetak karbon atau stiker kecil yang mudah pudar tintanya, berujung pada perdebatan garansi dengan pembeli.
+                  Banyak toko komputer masih memakai nota kertas dan stiker kecil yang mudah pudar, sehingga memicu perdebatan saat pelanggan ingin klaim garansi.
                 </p>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-2">
                 <h4 className="font-bold text-slate-900 flex items-center gap-2">
                   <Terminal className="w-4 h-4 text-emerald-600" />
-                  Pendekatan Teknologi
+                  Pendekatan
                 </h4>
                 <p>
-                  Dibangun menggunakan arsitektur web modern yang ringan, aman, dan berorientasi pengguna. Fokus utama kami bukan membuat sistem yang rumit, melainkan menghadirkan alat kerja yang langsung bisa dipakai oleh staf toko tanpa pelatihan berbelit.
+                  WarrantyIDEA hadir sebagai aplikasi web ringan agar kasir dan teknisi bisa mencatat nomor seri serta riwayat servis tanpa sistem yang rumit.
                 </p>
               </div>
             </div>
@@ -79,10 +79,10 @@ export const About: React.FC = () => {
             <div className="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-start sm:items-center justify-between text-xs text-slate-500 gap-3">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>Siap diuji coba dan dipresentasikan untuk validasi pasar ritel lokal.</span>
+                <span>Prototipe ide bisnis purna jual ritel komputer.</span>
               </div>
               <span className="text-slate-400 font-mono text-[11px]">
-                Inisiasi Mahasiswa IT &bull; Angkatan 2026
+                Inisiasi Mahasiswa IT &bull; Angkatan 2025
               </span>
             </div>
 

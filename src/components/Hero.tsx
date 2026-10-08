@@ -44,10 +44,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo }) => {
             {/* Subtle Pill Tag */}
             <div className="inline-flex flex-wrap items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-md bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold tracking-wide max-w-full">
               <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse shrink-0"></span>
-              <span>Sistem Digitalisasi Ritel Komputer &amp; Elektronik</span>
+              <span>Digital Warranty System</span>
               <span className="hidden sm:inline text-slate-300">|</span>
               <span className="text-[11px] font-medium text-pink-700 bg-pink-50 px-1.5 py-0.5 rounded border border-pink-200 shrink-0">
-                Inovasi Mahasiswa IT
+                Karya Mahasiswa IT
               </span>
             </div>
 
@@ -59,7 +59,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo }) => {
 
             {/* Subheadline */}
             <p className="w-full text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">
-              WarrantyIDEA membantu toko komputer dan elektronik mengelola garansi, klaim, dan riwayat servis dalam satu sistem digital.
+              Kelola data garansi, klaim, dan riwayat servis toko komputer dalam satu sistem digital.
             </p>
 
             {/* CTAs */}
@@ -68,14 +68,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo }) => {
                 onClick={() => scrollToSection('preview')}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm sm:text-base font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-subtle transition-all duration-150 active:scale-95"
               >
-                <span>Jelajahi Produk</span>
+                <span>Coba Demo</span>
                 <ArrowRight className="w-4 h-4 text-blue-200" />
               </button>
               <button
                 onClick={() => scrollToSection('alur')}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm sm:text-base font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 rounded-lg transition-colors shadow-subtle"
               >
-                <span>Lihat Cara Kerja</span>
+                <span>Lihat Alur</span>
               </button>
             </div>
 
@@ -83,15 +83,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo }) => {
             <div className="w-full pt-6 border-t border-slate-200 grid grid-cols-3 gap-2 sm:gap-4 text-slate-600">
               <div>
                 <div className="text-[11px] sm:text-xs text-slate-500 font-medium">Bebas Kertas</div>
-                <div className="text-xs sm:text-sm font-semibold text-slate-800">QR Digital Unik</div>
+                <div className="text-xs sm:text-sm font-semibold text-slate-800">QR Code Unik</div>
               </div>
               <div>
-                <div className="text-[11px] sm:text-xs text-slate-500 font-medium">Verifikasi Cepat</div>
-                <div className="text-xs sm:text-sm font-semibold text-slate-800">&lt; 5 Detik</div>
+                <div className="text-[11px] sm:text-xs text-slate-500 font-medium">Verifikasi</div>
+                <div className="text-xs sm:text-sm font-semibold text-slate-800">Cepat &amp; Akurat</div>
               </div>
               <div>
-                <div className="text-[11px] sm:text-xs text-slate-500 font-medium">Fokus Pengguna</div>
-                <div className="text-xs sm:text-sm font-semibold text-slate-800">Seller &amp; Buyer</div>
+                <div className="text-[11px] sm:text-xs text-slate-500 font-medium">Pengguna</div>
+                <div className="text-xs sm:text-sm font-semibold text-slate-800">Seller &amp; Customer</div>
               </div>
             </div>
           </div>

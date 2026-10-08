@@ -10,28 +10,28 @@ import { ScrollReveal } from './ScrollReveal';
 export const SellerBenefits: React.FC = () => {
   const benefits = [
     {
-      title: 'Data produk lebih teratur',
-      desc: 'Setiap unit yang keluar dari kasir tercatat rapi berdasarkan Serial Number dan tanggal rilisnya.',
+      title: 'Data Produk Terpusat',
+      desc: 'Setiap unit dan nomor seri tercatat otomatis saat transaksi kasir.',
     },
     {
-      title: 'Riwayat klaim lebih mudah diperiksa',
-      desc: 'Toko bisa langsung melihat apakah unit pernah diservis sebelumnya atau masih dalam periode garansi resmi.',
+      title: 'Klaim Cepat Diverifikasi',
+      desc: 'Periksa keabsahan masa garansi dalam hitungan detik.',
     },
     {
-      title: 'Kondisi barang dapat dicatat',
-      desc: 'Catat goresan fisik awal atau kelengkapan bawaan saat pembelian untuk menghindari sengketa saat retur.',
+      title: 'Kondisi Awal Tercatat',
+      desc: 'Dokumentasikan kondisi fisik dan kelengkapan barang saat terjual.',
     },
     {
-      title: 'Riwayat servis tersimpan',
-      desc: 'Semua tindakan perbaikan dan penggantian suku cadang terdokumentasi rapi tanpa perlu cari-cari nota manual.',
+      title: 'Riwayat Servis Rapi',
+      desc: 'Semua catatan perbaikan dan penggantian komponen tersimpan aman.',
     },
     {
-      title: 'Mengurangi kesalahan pencatatan',
-      desc: 'Hindari salah tulis tanggal, salah nomor seri, atau manipulasi nota palsu dari pihak yang tidak bertanggung jawab.',
+      title: 'Cegah Penipuan Garansi',
+      desc: 'Hindari nota tiruan atau klaim barang yang dibeli dari toko lain.',
     },
     {
-      title: 'Membantu menjaga pelanggan setelah pembelian',
-      desc: 'Pelayanan purna jual yang transparan membangun kepercayaan tinggi, membuat pelanggan setia berbelanja kembali.',
+      title: 'Kepuasan Pelanggan Meningkat',
+      desc: 'Layanan purna jual yang transparan membangun kepercayaan pembeli.',
     },
   ];
 
@@ -42,13 +42,13 @@ export const SellerBenefits: React.FC = () => {
           {/* Section Header */}
           <div className="max-w-3xl mx-auto text-center mb-14">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide uppercase mb-3 border border-blue-200">
-              Kemitraan Toko Ritel
+              Manfaat Seller
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Dirancang untuk Membantu Seller
+              Keuntungan bagi Toko
             </h2>
             <p className="mt-3 text-base text-slate-600 leading-relaxed">
-              WarrantyIDEA tidak dibuat untuk membebani atau merugikan pemilik toko. Sistem ini hadir sebagai pelindung operasional agar toko terhindar dari sengketa klaim palsu dan biaya administrasi yang membengkak.
+              Bantu operasional toko mengelola garansi dan riwayat servis tanpa tumpukan kertas.
             </p>
           </div>
 

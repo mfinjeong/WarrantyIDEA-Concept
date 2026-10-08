@@ -1,32 +1,26 @@
 import React from 'react';
-import { FileQuestion, HelpCircle, Clock, Wrench } from 'lucide-react';
+import { FileQuestion, Clock, Wrench } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
 
 export const ProblemSection: React.FC = () => {
   const problems = [
     {
       icon: FileQuestion,
-      title: 'Data garansi masih dicatat secara manual',
-      desc: 'Buku catatan fisik atau spreadsheet terpisah rawan hilang, rusak, atau keliru diinput saat kasir sedang ramai transaksi.',
-      tag: 'Administrasi Rentan',
-    },
-    {
-      icon: HelpCircle,
-      title: 'Pelanggan sulit mengetahui status garansi',
-      desc: 'Nota pembelian sering hilang atau pudar tintanya. Pembeli bingung apakah masa garansi toko masih berlaku saat terjadi kerusakan.',
-      tag: 'Keresahan Pembeli',
+      title: 'Nota kertas mudah hilang atau pudar',
+      desc: 'Pelanggan kesulitan membuktikan masa garansi saat nota fisik hilang atau tintanya pudar.',
+      tag: 'Nota Fisik',
     },
     {
       icon: Clock,
-      title: 'Seller butuh waktu mengecek riwayat produk',
-      desc: 'Saat ada pelanggan komplain, staf toko harus membongkar tumpukan arsip atau nota manual untuk mencocokkan nomor seri barang.',
-      tag: 'Waktu Terbuang',
+      title: 'Pengecekan garansi toko memakan waktu',
+      desc: 'Seller harus membongkar arsip manual untuk mencocokkan nomor seri saat ada komplain.',
+      tag: 'Proses Lambat',
     },
     {
       icon: Wrench,
-      title: 'Riwayat servis mudah tercecer',
-      desc: 'Penggantian spare part, riwayat perbaikan teknisi, dan riwayat klaim sebelumnya tidak terekam dalam satu data yang terpusat.',
-      tag: 'Data Terputus',
+      title: 'Riwayat perbaikan teknisi tercecer',
+      desc: 'Catatan servis dan pergantian suku cadang tidak tersimpan dalam satu data terpusat.',
+      tag: 'Data Tercecer',
     },
   ];
 
@@ -37,18 +31,18 @@ export const ProblemSection: React.FC = () => {
           {/* Section Header */}
           <div className="max-w-2xl mx-auto text-center mb-12 md:mb-16">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide uppercase mb-3 border border-blue-200/80">
-              Realita Ritel Elektronik
+              Masalah
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Masalah yang Sering Terjadi Setelah Penjualan
+              Kendala Garansi yang Sering Terjadi
             </h2>
             <p className="mt-3 text-base text-slate-600 leading-relaxed">
-              Pengelolaan purna jual konvensional sering menimbulkan kendala bagi penjual maupun pembeli saat terjadi kendala teknis pada perangkat.
+              Pengelolaan manual dengan nota kertas sering merepotkan toko dan membingungkan pelanggan.
             </p>
           </div>
 
-          {/* 4 Problem Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* 3 Problem Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {problems.map((item, idx) => {
               const Icon = item.icon;
               return (
@@ -76,8 +70,8 @@ export const ProblemSection: React.FC = () => {
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-400">
-                  <span>Kendala #{idx + 1}</span>
-                  <span className="text-pink-600 font-medium">Berdampak ke Reputasi</span>
+                  <span>Masalah #{idx + 1}</span>
+                  <span className="text-slate-500 font-medium">Perlu Solusi</span>
                 </div>
               </div>
             );

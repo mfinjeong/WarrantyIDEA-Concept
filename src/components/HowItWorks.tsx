@@ -12,26 +12,26 @@ export const HowItWorks: React.FC = () => {
   const steps = [
     {
       num: '01',
-      title: 'Seller mendaftarkan produk',
-      desc: 'Kasir atau admin toko menginput serial number, tipe produk, dan tanggal pembelian ke dashboard WarrantyIDEA.',
+      title: 'Seller daftarkan produk',
+      desc: 'Toko menginput nomor seri dan tanggal pembelian ke sistem.',
       icon: UserPlus,
     },
     {
       num: '02',
-      title: 'QR Code dibuat untuk produk',
-      desc: 'Sistem secara otomatis menghasilkan kode QR unik yang dapat dicetak langsung ke stiker unit atau struk digital.',
+      title: 'QR Code otomatis dibuat',
+      desc: 'Sistem menghasilkan stiker QR unik untuk ditempel pada unit barang.',
       icon: QrCode,
     },
     {
       num: '03',
-      title: 'Customer melakukan scan',
-      desc: 'Customer cukup mengarahkan kamera smartphone ke kode QR stiker tanpa perlu menginstal aplikasi pihak ketiga.',
+      title: 'Customer scan QR',
+      desc: 'Customer memindai stiker QR dari kamera HP tanpa instal aplikasi.',
       icon: Smartphone,
     },
     {
       num: '04',
-      title: 'Warranty & service history dapat diakses',
-      desc: 'Informasi garansi aktif, sisa masa perlindungan, dan riwayat perbaikan terbuka secara transparan dan akurat.',
+      title: 'Garansi & servis terpantau',
+      desc: 'Status aktif garansi dan catatan perbaikan langsung dapat diakses.',
       icon: ShieldCheck,
     },
   ];
@@ -46,13 +46,13 @@ export const HowItWorks: React.FC = () => {
           {/* Section Header */}
           <div className="max-w-3xl mx-auto text-center mb-16">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide uppercase mb-3 border border-blue-200/80">
-              Alur Implementasi
+              Alur
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
               Cara Kerja WarrantyIDEA
             </h2>
             <p className="mt-3 text-base text-slate-600 leading-relaxed">
-              Hanya butuh empat tahapan mudah untuk beralih dari nota kertas manual ke ekosistem garansi digital yang andal.
+              Empat langkah mudah dari pendaftaran hingga pengecekan garansi.
             </p>
           </div>
 
@@ -92,7 +92,7 @@ export const HowItWorks: React.FC = () => {
 
                   <div className="mt-5 pt-3 border-t border-slate-100 flex items-center gap-1.5 text-[11px] text-emerald-800 font-medium">
                     <CheckCircle className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Langkah {idx + 1} Terotomatisasi</span>
+                    <span>Langkah {idx + 1} Selesai</span>
                   </div>
                 </div>
               );

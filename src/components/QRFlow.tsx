@@ -17,26 +17,26 @@ export const QRFlow: React.FC = () => {
   const flowSteps = [
     {
       num: '01',
-      title: 'Scan QR',
-      desc: 'Customer mengarahkan kamera HP ke stiker QR WarrantyIDEA pada unit.',
+      title: 'Scan QR Code',
+      desc: 'Arahkan kamera smartphone ke stiker QR pada unit produk.',
       icon: QrCode,
     },
     {
       num: '02',
-      title: 'Product Information',
-      desc: 'Halaman web otomatis terbuka menampilkan model, seri, dan detail toko.',
+      title: 'Informasi Produk',
+      desc: 'Model, nomor seri, dan tanggal beli langsung tampil di layar.',
       icon: Info,
     },
     {
       num: '03',
-      title: 'Warranty Status',
-      desc: 'Masa aktif garansi dan sisa hari garansi terlihat secara transparan.',
+      title: 'Status Garansi',
+      desc: 'Masa aktif dan sisa hari perlindungan terlihat jelas.',
       icon: ShieldCheck,
     },
     {
       num: '04',
-      title: 'Service History',
-      desc: 'Catatan servis teknisi dan penggantian komponen dapat dipantau.',
+      title: 'Riwayat Servis',
+      desc: 'Catatan servis teknisi dan pergantian suku cadang terpantau.',
       icon: History,
     },
   ];
@@ -48,13 +48,13 @@ export const QRFlow: React.FC = () => {
           {/* Section Header */}
           <div className="max-w-3xl mx-auto text-center mb-14">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 text-emerald-800 text-xs font-semibold tracking-wide uppercase mb-3 border border-emerald-200">
-              Pengalaman Pengguna (Customer Experience)
+              Customer Experience
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
               Semudah Scan QR
             </h2>
             <p className="mt-3 text-base text-slate-600 leading-relaxed">
-              Tidak perlu mendownload aplikasi tambahan. Pelanggan cukup memindai kode QR dari kamera bawaan smartphone untuk memeriksa garansi secara instan.
+              Pelanggan cukup memindai kode QR dari kamera HP tanpa instal aplikasi tambahan.
             </p>
           </div>
 

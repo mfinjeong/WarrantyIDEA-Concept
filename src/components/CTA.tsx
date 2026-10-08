@@ -22,15 +22,15 @@ export const CTA: React.FC<CTAProps> = ({ onOpenDemo }) => {
               {/* Green status accent */}
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-200 text-xs font-semibold tracking-wide border border-emerald-400/30">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Siap Bertransformasi Digital</span>
+                <span>Siap Digunakan</span>
               </div>
 
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
-                Kelola Garansi Tanpa Ribet.
+                Kelola Garansi Toko Lebih Rapi Sekarang
               </h2>
 
               <p className="text-base sm:text-lg text-blue-100 leading-relaxed max-w-xl mx-auto">
-                WarrantyIDEA membantu seller dan pelanggan mengelola informasi garansi dan layanan produk dalam satu sistem.
+                Tinggalkan nota kertas manual dan kelola garansi produk Anda secara digital.
               </p>
 
               <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -38,13 +38,13 @@ export const CTA: React.FC<CTAProps> = ({ onOpenDemo }) => {
                   onClick={onOpenDemo}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm sm:text-base font-semibold text-blue-900 bg-white hover:bg-blue-50 rounded-lg shadow-md transition-all duration-150 active:scale-95"
                 >
-                  <span>View Demo</span>
+                  <span>Coba Demo</span>
                   <ArrowRight className="w-4 h-4 text-blue-700" />
                 </button>
               </div>
 
-              <div className="pt-4 text-xs text-blue-200/80">
-                Tidak membutuhkan kartu kredit &bull; Simulasi demo interaktif langsung di browser
+              <div className="pt-2 text-xs text-blue-200/80">
+                Simulasi interaktif langsung di browser tanpa instalasi
               </div>
 
             </div>
