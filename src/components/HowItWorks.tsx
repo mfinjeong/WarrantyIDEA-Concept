@@ -36,7 +36,7 @@ export const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section id="alur" className="w-full py-16 md:py-24 bg-white border-y border-slate-200">
+    <section id="alur" className="w-full py-16 md:py-24 bg-white border-y border-slate-200 scroll-mt-16">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
         
         {/* Section Header */}

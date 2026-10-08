@@ -20,12 +20,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo }) => {
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      const navbarHeight = 64;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
     }
   };
 
   return (
-    <section id="hero" className="w-full relative pt-10 pb-16 md:pt-16 md:pb-24 bg-surface-base">
+    <section id="beranda" className="w-full relative pt-10 pb-16 md:pt-16 md:pb-24 bg-surface-base scroll-mt-16">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center min-w-0">
           

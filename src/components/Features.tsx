@@ -55,7 +55,7 @@ export const Features: React.FC = () => {
   ];
 
   return (
-    <section id="fitur" className="w-full py-16 md:py-24 bg-surface-base">
+    <section id="fitur" className="w-full py-16 md:py-24 bg-surface-base scroll-mt-16">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
         
         {/* Section Header */}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ShieldCheck, Menu, X, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
@@ -7,23 +7,105 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('beranda');
 
   const navLinks = [
-    { label: 'Beranda', href: '#hero' },
-    { label: 'Masalah', href: '#masalah' },
-    { label: 'Solusi', href: '#solusi' },
-    { label: 'Fitur', href: '#fitur' },
-    { label: 'Alur', href: '#alur' },
-    { label: 'Tentang', href: '#tentang' },
+    { label: 'Beranda', href: '#beranda', id: 'beranda' },
+    { label: 'Masalah', href: '#masalah', id: 'masalah' },
+    { label: 'Solusi', href: '#solusi', id: 'solusi' },
+    { label: 'Fitur', href: '#fitur', id: 'fitur' },
+    { label: 'Alur', href: '#alur', id: 'alur' },
+    { label: 'Tentang', href: '#tentang', id: 'tentang' },
   ];
 
-  const handleLinkClick = (href: string) => {
+  const handleLinkClick = (id: string) => {
     setMobileMenuOpen(false);
-    const element = document.querySelector(href);
+    setActiveSection(id);
+    const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const navbarHeight = 64; // height of sticky navbar
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: 'smooth',
+      });
     }
   };
+
+  useEffect(() => {
+    const sectionIds = ['beranda', 'masalah', 'solusi', 'fitur', 'alur', 'tentang'];
+    const visibleMap = new Map<string, number>();
+
+    const updateActiveSection = () => {
+      // Boundary check: top of page
+      if (window.scrollY < 80) {
+        setActiveSection('beranda');
+        return;
+      }
+      // Boundary check: bottom of page
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 80) {
+        setActiveSection('tentang');
+        return;
+      }
+
+      // Pick the currently intersecting section closest to navbar focus line
+      let closestSection = '';
+      let minDistance = Infinity;
+
+      visibleMap.forEach((_, id) => {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          const distance = Math.abs(rect.top - 80);
+          if (distance < minDistance) {
+            minDistance = distance;
+            closestSection = id;
+          }
+        }
+      });
+
+      if (closestSection) {
+        setActiveSection(closestSection);
+      }
+    };
+
+    // IntersectionObserver scroll spy
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visibleMap.set(entry.target.id, entry.intersectionRatio);
+          } else {
+            visibleMap.delete(entry.target.id);
+          }
+        });
+        updateActiveSection();
+      },
+      {
+        root: null,
+        rootMargin: '-80px 0px -40% 0px',
+        threshold: [0, 0.1, 0.25, 0.5],
+      }
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    const handleScroll = () => {
+      updateActiveSection();
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    updateActiveSection(); // Run initially
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <header className="w-full sticky top-0 z-40 bg-white border-b border-slate-200">
@@ -31,7 +113,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a
-            href="#hero"
+            href="#beranda"
+            onClick={(e) => {
+              e.preventDefault();
+              handleLinkClick('beranda');
+            }}
             className="flex items-center gap-2.5 text-slate-900 group select-none"
           >
             <div className="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center text-white shadow-subtle group-hover:bg-blue-700 transition-colors">
@@ -48,16 +134,30 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
-            {navLinks.map((link) => (
-              <button
-                key={link.label}
-                onClick={() => handleLinkClick(link.href)}
-                className="px-3 py-1.5 text-sm font-medium text-slate-600 hover:text-blue-600 hover:bg-slate-50 rounded-md transition-colors"
-              >
-                {link.label}
-              </button>
-            ))}
+          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2" aria-label="Main Navigation">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.id;
+              return (
+                <button
+                  key={link.id}
+                  onClick={() => handleLinkClick(link.id)}
+                  aria-current={isActive ? 'page' : undefined}
+                  className={`relative px-3 py-1.5 text-sm transition-colors rounded-md ${
+                    isActive
+                      ? 'text-blue-600 font-semibold'
+                      : 'text-slate-600 hover:text-blue-600 hover:bg-slate-50 font-medium'
+                  }`}
+                >
+                  <span>{link.label}</span>
+                  {isActive && (
+                    <span
+                      className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-blue-600 rounded-full"
+                      aria-hidden="true"
+                    />
+                  )}
+                </button>
+              );
+            })}
           </nav>
 
           {/* CTA Button */}
@@ -77,7 +177,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-md transition-colors"
-              aria-label="Buka menu navigasi"
+              aria-label={mobileMenuOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi'}
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -87,16 +188,27 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-5 space-y-2">
-          {navLinks.map((link) => (
-            <button
-              key={link.label}
-              onClick={() => handleLinkClick(link.href)}
-              className="block w-full text-left px-3 py-2 text-base font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 rounded-md transition-colors"
-            >
-              {link.label}
-            </button>
-          ))}
+        <div className="md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-5 space-y-1.5" aria-label="Mobile Navigation">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <button
+                key={link.id}
+                onClick={() => handleLinkClick(link.id)}
+                aria-current={isActive ? 'page' : undefined}
+                className={`w-full text-left px-3.5 py-2.5 text-sm rounded-lg transition-colors flex items-center justify-between ${
+                  isActive
+                    ? 'text-blue-600 bg-blue-50/70 font-semibold border-l-2 border-blue-600'
+                    : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50 font-medium'
+                }`}
+              >
+                <span>{link.label}</span>
+                {isActive && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600" aria-hidden="true" />
+                )}
+              </button>
+            );
+          })}
           <div className="pt-3 border-t border-slate-100">
             <button
               onClick={() => {
