@@ -41,3 +41,47 @@ body {
   background-color: oklch(0.92 0.06 250);
   color: oklch(0.35 0.20 255);
 }
+
+/* Subtle CSS Technical Patterns */
+.bg-subtle-grid {
+  background-image: 
+    linear-gradient(to right, oklch(0.85 0.04 250 / 0.18) 1px, transparent 1px),
+    linear-gradient(to bottom, oklch(0.85 0.04 250 / 0.18) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-subtle-diagonal {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    oklch(0.85 0.04 250 / 0.09) 0,
+    oklch(0.85 0.04 250 / 0.09) 1px,
+    transparent 1px,
+    transparent 28px
+  );
+}
+
+.bg-subtle-dots {
+  background-image: radial-gradient(circle, oklch(0.7 0.08 145 / 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Subtle group scroll reveal */
+.reveal-group {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-group.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-group {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

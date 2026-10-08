@@ -11,6 +11,7 @@ import {
   Clock,
   Laptop,
 } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 interface ProductItem {
   id: string;
@@ -108,11 +109,11 @@ export const DashboardPreview: React.FC = () => {
   }, [searchTerm, activeTab]);
 
   return (
-    <section id="preview" className="w-full py-16 md:py-24 bg-white border-b border-slate-200">
+    <section id="preview" className="w-full py-16 md:py-24 bg-white border-b border-slate-200/70 scroll-mt-16">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
-        
-        {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-12">
+        <ScrollReveal>
+          {/* Section Header */}
+          <div className="max-w-3xl mx-auto text-center mb-12">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide uppercase mb-3 border border-blue-200">
             Fokus Produk
           </div>
@@ -437,6 +438,7 @@ export const DashboardPreview: React.FC = () => {
 
           </div>
         </div>
+        </ScrollReveal>
 
       </div>
     </section>

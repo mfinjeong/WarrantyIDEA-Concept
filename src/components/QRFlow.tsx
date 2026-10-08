@@ -9,6 +9,7 @@ import {
   Clock,
   Wrench,
 } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 export const QRFlow: React.FC = () => {
   const [showHistory, setShowHistory] = useState(false);
@@ -41,34 +42,34 @@ export const QRFlow: React.FC = () => {
   ];
 
   return (
-    <section className="w-full py-16 md:py-24 bg-white border-y border-slate-200">
+    <section className="w-full py-16 md:py-24 bg-white border-b border-slate-200/70">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
-        
-        {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 text-emerald-800 text-xs font-semibold tracking-wide uppercase mb-3 border border-emerald-200">
-            Pengalaman Pengguna (Customer Experience)
+        <ScrollReveal>
+          {/* Section Header */}
+          <div className="max-w-3xl mx-auto text-center mb-14">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-emerald-50 text-emerald-800 text-xs font-semibold tracking-wide uppercase mb-3 border border-emerald-200">
+              Pengalaman Pengguna (Customer Experience)
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Semudah Scan QR
+            </h2>
+            <p className="mt-3 text-base text-slate-600 leading-relaxed">
+              Tidak perlu mendownload aplikasi tambahan. Pelanggan cukup memindai kode QR dari kamera bawaan smartphone untuk memeriksa garansi secara instan.
+            </p>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Semudah Scan QR
-          </h2>
-          <p className="mt-3 text-base text-slate-600 leading-relaxed">
-            Tidak perlu mendownload aplikasi tambahan. Pelanggan cukup memindai kode QR dari kamera bawaan smartphone untuk memeriksa garansi secara instan.
-          </p>
-        </div>
 
-        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center min-w-0">
-          
-          {/* Left Column: Alur Penjelasan */}
-          <div className="w-full lg:col-span-7 space-y-6 min-w-0">
-            <div className="space-y-4">
-              {flowSteps.map((step, idx) => {
-                const Icon = step.icon;
-                return (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-4 p-4 rounded-xl border border-slate-200 bg-surface-base hover:bg-slate-50 transition-colors min-w-0"
-                  >
+          <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center min-w-0">
+            
+            {/* Left Column: Alur Penjelasan */}
+            <div className="w-full lg:col-span-7 space-y-6 min-w-0">
+              <div className="space-y-4">
+                {flowSteps.map((step, idx) => {
+                  const Icon = step.icon;
+                  return (
+                    <div
+                      key={idx}
+                      className="flex items-start gap-4 p-4 rounded-xl border border-slate-200 bg-surface-base hover:bg-slate-50/90 hover:border-blue-300 hover:shadow-subtle hover:-translate-y-0.5 transition-all duration-200 min-w-0"
+                    >
                     <div className="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-subtle">
                       <Icon className="w-5 h-5 text-emerald-300" />
                     </div>
@@ -219,6 +220,7 @@ export const QRFlow: React.FC = () => {
           </div>
 
         </div>
+        </ScrollReveal>
 
       </div>
     </section>

@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   GraduationCap,
   Code2,
@@ -7,26 +6,30 @@ import {
   CheckCircle2,
   Terminal,
 } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 export const About: React.FC = () => {
   return (
-    <section id="tentang" className="w-full py-16 md:py-24 bg-white border-y border-slate-200 scroll-mt-16">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
-        
-        <div className="max-w-4xl mx-auto">
-          
-          {/* Section Header */}
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold tracking-wide uppercase mb-3">
-              Latar Belakang Proyek
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Tentang WarrantyIDEA
-            </h2>
-          </div>
+    <section id="tentang" className="w-full py-16 md:py-24 bg-white border-b border-slate-200/70 scroll-mt-16 relative overflow-hidden">
+      {/* Subtle pink accent glow */}
+      <div className="absolute top-10 right-10 w-72 h-72 bg-pink-100/25 rounded-full blur-3xl pointer-events-none" aria-hidden="true" />
 
-          {/* Main Statement Box */}
-          <div className="bg-surface-base rounded-2xl border border-slate-200 p-6 md:p-10 shadow-subtle space-y-6">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0 relative z-10">
+        <ScrollReveal>
+          <div className="max-w-4xl mx-auto">
+            
+            {/* Section Header */}
+            <div className="text-center mb-10">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-semibold tracking-wide uppercase mb-3">
+                Latar Belakang Proyek
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+                Tentang WarrantyIDEA
+              </h2>
+            </div>
+
+            {/* Main Statement Box */}
+            <div className="bg-surface-base rounded-2xl border border-slate-200 p-6 md:p-10 shadow-subtle hover:border-slate-300 hover:shadow-card transition-all duration-200 space-y-6">
             
             {/* 3 Badges Requested by User */}
             <div className="flex flex-wrap items-center gap-2.5">
@@ -86,6 +89,7 @@ export const About: React.FC = () => {
           </div>
 
         </div>
+        </ScrollReveal>
 
       </div>
     </section>

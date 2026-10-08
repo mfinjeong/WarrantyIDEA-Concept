@@ -8,6 +8,7 @@ import {
   ArrowDown,
   CheckCircle,
 } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 export const SolutionSection: React.FC = () => {
   const steps = [
@@ -46,24 +47,28 @@ export const SolutionSection: React.FC = () => {
   ];
 
   return (
-    <section id="solusi" className="w-full py-16 md:py-24 bg-surface-base scroll-mt-16">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
-        
-        {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-14">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide uppercase mb-3 border border-blue-200">
-            Arsitektur Solusi
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Satu Sistem untuk Mengelola Garansi
-          </h2>
-          <p className="mt-3 text-base text-slate-600 leading-relaxed">
-            WarrantyIDEA menggantikan tumpukan kuitansi kertas dengan siklus digital yang menghubungkan produk fisik langsung ke database purna jual.
-          </p>
-        </div>
+    <section id="solusi" className="w-full py-16 md:py-24 bg-white relative overflow-hidden border-b border-slate-200/70 scroll-mt-16">
+      {/* Subtle edge technical accents */}
+      <div className="absolute top-0 right-0 w-80 h-80 bg-blue-50/40 rounded-full blur-3xl pointer-events-none -mr-32 -mt-32" aria-hidden="true" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-50/30 rounded-full blur-3xl pointer-events-none -ml-32 -mb-32" aria-hidden="true" />
 
-        {/* HTML + Tailwind Flow Diagram */}
-        <div className="w-full max-w-full bg-white rounded-2xl border border-slate-200 p-4 sm:p-6 md:p-10 shadow-card min-w-0">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0 relative z-10">
+        <ScrollReveal>
+          {/* Section Header */}
+          <div className="max-w-3xl mx-auto text-center mb-14">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide uppercase mb-3 border border-blue-200">
+              Arsitektur Solusi
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Satu Sistem untuk Mengelola Garansi
+            </h2>
+            <p className="mt-3 text-base text-slate-600 leading-relaxed">
+              WarrantyIDEA menggantikan tumpukan kuitansi kertas dengan siklus digital yang menghubungkan produk fisik langsung ke database purna jual.
+            </p>
+          </div>
+
+          {/* HTML + Tailwind Flow Diagram */}
+          <div className="w-full max-w-full bg-white rounded-2xl border border-slate-200 p-4 sm:p-6 md:p-10 shadow-card min-w-0">
           
           <div className="flex items-center justify-between pb-6 mb-8 border-b border-slate-100 gap-2 min-w-0">
             <div className="flex items-center gap-2 min-w-0">
@@ -144,7 +149,7 @@ export const SolutionSection: React.FC = () => {
           </div>
 
         </div>
-
+        </ScrollReveal>
       </div>
     </section>
   );

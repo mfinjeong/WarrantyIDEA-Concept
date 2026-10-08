@@ -12,6 +12,8 @@ import {
   TrendingUp,
 } from 'lucide-react';
 
+import { ScrollReveal } from './ScrollReveal';
+
 interface HeroProps {
   onOpenDemo: () => void;
 }
@@ -31,9 +33,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo }) => {
   };
 
   return (
-    <section id="beranda" className="w-full relative pt-10 pb-16 md:pt-16 md:pb-24 bg-surface-base scroll-mt-16">
+    <section id="beranda" className="w-full relative pt-10 pb-16 md:pt-16 md:pb-24 bg-white bg-subtle-grid border-b border-slate-200/70 scroll-mt-16 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
-        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center min-w-0">
+        <ScrollReveal>
+          <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center min-w-0">
           
           {/* Left Column: Value Proposition */}
           <div className="w-full lg:col-span-6 space-y-6 min-w-0">
@@ -255,8 +258,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo }) => {
               </div>
             </div>
           </div>
-
-        </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

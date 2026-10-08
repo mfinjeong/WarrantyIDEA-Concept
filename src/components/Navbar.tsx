@@ -8,6 +8,8 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('beranda');
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navLinks = [
     { label: 'Beranda', href: '#beranda', id: 'beranda' },
@@ -23,7 +25,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
     setActiveSection(id);
     const element = document.getElementById(id);
     if (element) {
-      const navbarHeight = 64; // height of sticky navbar
+      const navbarHeight = 60; // height of sticky navbar
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
       window.scrollTo({
@@ -38,6 +40,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
     const visibleMap = new Map<string, number>();
 
     const updateActiveSection = () => {
+      // Calculate scroll progress percentage
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        const progress = Math.min(100, Math.max(0, (window.scrollY / totalHeight) * 100));
+        setScrollProgress(progress);
+      }
+      setIsScrolled(window.scrollY > 20);
+
       // Boundary check: top of page
       if (window.scrollY < 80) {
         setActiveSection('beranda');
@@ -108,33 +118,105 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
   }, []);
 
   return (
-    <header className="w-full sticky top-0 z-40 bg-white border-b border-slate-200">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <a
-            href="#beranda"
-            onClick={(e) => {
-              e.preventDefault();
-              handleLinkClick('beranda');
-            }}
-            className="flex items-center gap-2.5 text-slate-900 group select-none"
-          >
-            <div className="w-9 h-9 rounded-lg bg-blue-600 flex items-center justify-center text-white shadow-subtle group-hover:bg-blue-700 transition-colors">
-              <ShieldCheck className="w-5 h-5 text-emerald-300" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-bold text-lg tracking-tight text-slate-900 flex items-center">
-                Warranty<span className="text-blue-600">IDEA</span>
-              </span>
-              <span className="text-[10px] -mt-1 font-medium text-slate-400 tracking-wider uppercase">
-                After-Sales System
-              </span>
-            </div>
-          </a>
+    <>
+      {/* 2.5px Subtle Scroll Progress Indicator */}
+      <div
+        className="fixed top-0 left-0 h-[2.5px] bg-blue-600 z-50 transition-[width] duration-75 ease-out pointer-events-none"
+        style={{ width: `${scrollProgress}%` }}
+        aria-hidden="true"
+      />
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-1 lg:space-x-2" aria-label="Main Navigation">
+      <header
+        className={`w-full sticky top-0 z-40 bg-white border-b transition-all duration-200 ${
+          isScrolled
+            ? 'border-slate-200/90 shadow-sm'
+            : 'border-slate-200'
+        }`}
+      >
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
+          <div
+            className={`flex items-center justify-between transition-all duration-200 ${
+              isScrolled ? 'h-14' : 'h-16'
+            }`}
+          >
+            {/* Logo */}
+            <a
+              href="#beranda"
+              onClick={(e) => {
+                e.preventDefault();
+                handleLinkClick('beranda');
+              }}
+              className="flex items-center gap-2.5 text-slate-900 group select-none"
+            >
+              <div className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white shadow-subtle group-hover:bg-blue-700 transition-colors shrink-0">
+                <ShieldCheck className="w-4 h-4 text-emerald-300" />
+              </div>
+              <div className="flex flex-col">
+                <span className="font-bold text-base sm:text-lg tracking-tight text-slate-900 flex items-center">
+                  Warranty<span className="text-blue-600">IDEA</span>
+                </span>
+                <span className="text-[9px] sm:text-[10px] -mt-1 font-medium text-slate-400 tracking-wider uppercase">
+                  After-Sales System
+                </span>
+              </div>
+            </a>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-1 lg:space-x-2" aria-label="Main Navigation">
+              {navLinks.map((link) => {
+                const isActive = activeSection === link.id;
+                return (
+                  <button
+                    key={link.id}
+                    onClick={() => handleLinkClick(link.id)}
+                    aria-current={isActive ? 'page' : undefined}
+                    className={`relative px-3 py-1.5 text-sm transition-colors rounded-md ${
+                      isActive
+                        ? 'text-blue-600 font-semibold'
+                        : 'text-slate-600 hover:text-blue-600 hover:bg-slate-50 font-medium'
+                    }`}
+                  >
+                    <span>{link.label}</span>
+                    {isActive && (
+                      <span
+                        className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-blue-600 rounded-full"
+                        aria-hidden="true"
+                      />
+                    )}
+                  </button>
+                );
+              })}
+            </nav>
+
+            {/* CTA Button */}
+            <div className="hidden md:flex items-center gap-3">
+              <button
+                onClick={onOpenDemo}
+                className="inline-flex items-center justify-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-subtle transition-all duration-150 active:scale-95"
+              >
+                <span>Demo</span>
+                <ArrowRight className="w-3.5 h-3.5 text-blue-200" />
+              </button>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="flex md:hidden">
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-md transition-colors"
+                aria-label={mobileMenuOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi'}
+                aria-expanded={mobileMenuOpen}
+              >
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Drawer Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-5 space-y-1.5" aria-label="Mobile Navigation">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
@@ -142,87 +224,34 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenDemo }) => {
                   key={link.id}
                   onClick={() => handleLinkClick(link.id)}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`relative px-3 py-1.5 text-sm transition-colors rounded-md ${
+                  className={`w-full text-left px-3.5 py-2.5 text-sm rounded-lg transition-colors flex items-center justify-between ${
                     isActive
-                      ? 'text-blue-600 font-semibold'
-                      : 'text-slate-600 hover:text-blue-600 hover:bg-slate-50 font-medium'
+                      ? 'text-blue-600 bg-blue-50/70 font-semibold border-l-2 border-blue-600'
+                      : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50 font-medium'
                   }`}
                 >
                   <span>{link.label}</span>
                   {isActive && (
-                    <span
-                      className="absolute bottom-0 left-2.5 right-2.5 h-[2px] bg-blue-600 rounded-full"
-                      aria-hidden="true"
-                    />
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-600" aria-hidden="true" />
                   )}
                 </button>
               );
             })}
-          </nav>
-
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center gap-3">
-            <button
-              onClick={onOpenDemo}
-              className="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-subtle transition-all duration-150 active:scale-95"
-            >
-              <span>Demo</span>
-              <ArrowRight className="w-4 h-4 text-blue-200" />
-            </button>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="flex md:hidden">
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-md transition-colors"
-              aria-label={mobileMenuOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi'}
-              aria-expanded={mobileMenuOpen}
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-5 space-y-1.5" aria-label="Mobile Navigation">
-          {navLinks.map((link) => {
-            const isActive = activeSection === link.id;
-            return (
+            <div className="pt-3 border-t border-slate-100">
               <button
-                key={link.id}
-                onClick={() => handleLinkClick(link.id)}
-                aria-current={isActive ? 'page' : undefined}
-                className={`w-full text-left px-3.5 py-2.5 text-sm rounded-lg transition-colors flex items-center justify-between ${
-                  isActive
-                    ? 'text-blue-600 bg-blue-50/70 font-semibold border-l-2 border-blue-600'
-                    : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50 font-medium'
-                }`}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenDemo();
+                }}
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-subtle transition-colors"
               >
-                <span>{link.label}</span>
-                {isActive && (
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600" aria-hidden="true" />
-                )}
+                <span>Buka Demo Interaktif</span>
+                <ArrowRight className="w-4 h-4 text-blue-200" />
               </button>
-            );
-          })}
-          <div className="pt-3 border-t border-slate-100">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenDemo();
-              }}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-subtle transition-colors"
-            >
-              <span>Buka Demo Interaktif</span>
-              <ArrowRight className="w-4 h-4 text-blue-200" />
-            </button>
+            </div>
           </div>
-        </div>
-      )}
-    </header>
+        )}
+      </header>
+    </>
   );
 };

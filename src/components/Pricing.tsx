@@ -1,5 +1,6 @@
 import React from 'react';
 import { Check, ArrowRight } from 'lucide-react';
+import { ScrollReveal } from './ScrollReveal';
 
 interface PricingProps {
   onOpenDemo: () => void;
@@ -55,33 +56,33 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenDemo }) => {
   ];
 
   return (
-    <section id="harga" className="w-full py-16 md:py-24 bg-surface-base">
+    <section id="harga" className="w-full py-16 md:py-24 bg-white border-b border-slate-200/70 scroll-mt-16">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-w-0">
-        
-        {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-12">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide uppercase mb-3 border border-blue-200">
-            Skema Langganan
+        <ScrollReveal>
+          {/* Section Header */}
+          <div className="max-w-2xl mx-auto text-center mb-12">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-semibold tracking-wide uppercase mb-3 border border-blue-200">
+              Skema Langganan
+            </div>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Model Bisnis
+            </h2>
+            <p className="mt-3 text-base text-slate-600 leading-relaxed">
+              WarrantyIDEA menggunakan model subscription terjangkau untuk toko, dirancang fleksibel tanpa biaya tersembunyi.
+            </p>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Model Bisnis
-          </h2>
-          <p className="mt-3 text-base text-slate-600 leading-relaxed">
-            WarrantyIDEA menggunakan model subscription terjangkau untuk toko, dirancang fleksibel tanpa biaya tersembunyi.
-          </p>
-        </div>
 
-        {/* 3 Pricing Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
-          {plans.map((plan, idx) => (
-            <div
-              key={idx}
-              className={`rounded-xl border p-6 flex flex-col justify-between transition-colors ${
-                plan.highlight
-                  ? 'bg-white border-blue-500 shadow-card ring-1 ring-blue-500/20'
-                  : 'bg-white border-slate-200 shadow-subtle hover:border-slate-300'
-              }`}
-            >
+          {/* 3 Pricing Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto items-stretch">
+            {plans.map((plan, idx) => (
+              <div
+                key={idx}
+                className={`rounded-xl border p-6 flex flex-col justify-between transition-all duration-200 hover:-translate-y-0.5 ${
+                  plan.highlight
+                    ? 'bg-white border-blue-500 shadow-card ring-1 ring-blue-500/20 hover:border-blue-600 hover:shadow-elevated'
+                    : 'bg-white border-slate-200 shadow-subtle hover:border-blue-300 hover:shadow-card'
+                }`}
+              >
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="text-base font-bold text-slate-900">
@@ -140,6 +141,7 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenDemo }) => {
         <div className="text-center mt-8 text-xs text-slate-500">
           Uji coba gratis 14 hari untuk toko baru tanpa komitmen kartu kredit.
         </div>
+        </ScrollReveal>
 
       </div>
     </section>
